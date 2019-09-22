@@ -1,0 +1,246 @@
+$overlay-color-legacy: rgba(0, 0, 0, 0.8);
+$overlay-color-modern-light: rgba(0, 0, 0, 0.6);
+$overlay-color-modern-dark: rgba(0, 0, 0, 0.6);
+
+$bg-color-legacy: rgba(250, 250, 250, 0.8);
+$bg-color-modern-light: rgba(250, 250, 250, 0.8);
+$bg-color-modern-dark: rgba(34, 36, 38, 0.7);
+
+$border-color-legacy: rgba(0, 0, 0, 0.1);
+$border-color-modern-light: rgba(0, 0, 0, 0.1);
+$border-color-modern-dark: rgb(71, 71, 73);
+
+$font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, sans-serif;
+
+$title-color-legacy: rgb(51, 51, 51);
+$title-color-modern-light: rgb(51, 51, 51);
+$title-color-modern-dark: rgb(255, 255, 255);
+
+$font-color-legacy: rgb(123, 123, 122);
+$font-color-modern-light: rgb(123, 123, 122);
+$font-color-modern-dark: rgb(166, 166, 166);
+
+$blue-color-legacy: rgb(45, 124, 246);
+$blue-color-modern-light: rgb(0, 122, 255);
+$blue-color-modern-dark: rgb(88, 147, 247);
+
+.pwa-prompt-overlay {
+  background-color: $overlay-color-legacy;
+  left: 0;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  transition: opacity 0.2s ease-in forwards;
+  width: 100vw;
+  z-index: 999999;
+
+  &.visible {
+    opacity: 1;
+  }
+
+  &.modern {
+    @media (prefers-color-scheme: dark) {
+      & {
+        background: $overlay-color-modern-dark;
+        color: $font-color-modern-dark;
+      }
+    }
+  }
+}
+
+.pwa-prompt {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: $bg-color-legacy;
+  border-radius: 10px;
+  bottom: 0;
+  color: black;
+  filter: brightness(1.1);
+  left: 0;
+  margin: 0 8px 10px;
+  overflow: hidden;
+  position: fixed;
+  transform: translateY(calc(100% + 10px));
+  transition: transform 0.4s cubic-bezier(0.4, 0.24, 0.3, 1);
+  width: calc(100vw - 16px);
+  z-index: 999999;
+
+  &.visible {
+    transform: translateY(0);
+  }
+
+  &.modern {
+    background: $bg-color-modern-light;
+
+    @media (prefers-color-scheme: dark) {
+      & {
+        background: $bg-color-modern-dark;
+      }
+    }
+  }
+}
+
+.pwa-prompt-header {
+  align-items: center;
+  border-bottom: 1px solid $border-color-legacy;
+  border-width: 0.5px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding: 13px 16px;
+
+  .modern & {
+    border-color: $border-color-modern-light;
+
+    @media (prefers-color-scheme: dark) {
+      & {
+        border-color: $border-color-modern-dark;
+      }
+    }
+  }
+
+  .pwa-prompt-title {
+    color: $title-color-legacy;
+    font-family: $font-family;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.125;
+    margin: 0;
+    padding: 0;
+
+    .modern & {
+      color: $title-color-modern-light;
+
+      @media (prefers-color-scheme: dark) {
+        & {
+          color: $title-color-modern-dark;
+        }
+      }
+    }
+  }
+
+  .pwa-prompt-cancel {
+    color: $blue-color-legacy;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+
+    .modern & {
+      color: $blue-color-modern-light;
+
+      @media (prefers-color-scheme: dark) {
+        & {
+          color: $blue-color-modern-dark;
+        }
+      }
+    }
+  }
+}
+
+.pwa-prompt-body {
+  display: flex;
+  width: 100%;
+
+  .pwa-prompt-description {
+    border-bottom: 1px solid $border-color-legacy;
+    border-width: 0.5px;
+    color: inherit;
+    margin: 0 16px;
+    padding: 16px;
+    width: 100%;
+
+    .modern & {
+      border-color: $border-color-modern-light;
+
+      @media (prefers-color-scheme: dark) {
+        & {
+          border-color: $border-color-modern-dark;
+        }
+      }
+    }
+  }
+}
+
+.pwa-prompt-copy {
+  color: $font-color-legacy;
+  font-family: $font-family;
+  font-size: 13px;
+  line-height: 17px;
+  margin: 0;
+  padding: 0;
+
+  &.bold {
+    font-weight: 600;
+  }
+
+  .modern & {
+    color: $font-color-modern-light;
+
+    @media (prefers-color-scheme: dark) {
+      & {
+        border-color: $font-color-modern-dark;
+      }
+    }
+  }
+}
+
+.pwa-prompt-instruction {
+  color: inherit;
+  margin: 0 16px;
+  padding: 16px;
+
+  .pwa-prompt-instruction-step {
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    margin-bottom: 16px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .pwa-prompt-share-icon,
+  .pwa-prompt-home-icon {
+    height: 30px;
+    margin-right: 32px;
+    width: 25px;
+  }
+
+  .pwa-prompt-home-icon {
+    color: $blue-color-legacy;
+
+    .modern & {
+      color: black;
+      fill: black;
+
+      @media (prefers-color-scheme: dark) {
+        & {
+          color: white;
+          fill: white;
+        }
+      }
+    }
+  }
+
+  .pwa-prompt-share-icon {
+    color: $blue-color-legacy;
+    fill: $blue-color-legacy;
+
+    .modern & {
+      color: $blue-color-modern-light;
+      fill: $blue-color-modern-light;
+
+      @media (prefers-color-scheme: dark) {
+        & {
+          color: $blue-color-modern-dark;
+          fill: $blue-color-modern-light;
+        }
+      }
+    }
+  }
+}
