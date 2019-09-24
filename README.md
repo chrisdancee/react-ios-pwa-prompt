@@ -1,8 +1,10 @@
 # React-iOS-PWA-prompt
 
+[![npm version](http://img.shields.io/npm/v/react-ios-pwa-prompt.svg?style=flat)](https://npmjs.org/package/react-ios-pwa-prompt "View this project on npm")
+
 > Polyfilling PWA prompts for iOS
 
-A React component that provides a customisable Progressive Web App (PWA) prompt, matching native iOS <=12 or 13 styles for both light and dark UI modes. This behaviour is inherent on Android devices, yet does not happen on iOS. This component aims to provide a simple way to provide this functionality for websites that are PWA-ready.
+A React component that provides a customisable Progressive Web App (PWA) prompt to 'Add to Home Screen', matching native iOS <=12 or 13 styles for both light and dark UI modes. This behaviour is inherent on Android devices, yet does not happen on iOS. This component aims to provide a simple way to provide this functionality for websites that are PWA-ready.
 
 <hr>
 
