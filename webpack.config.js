@@ -23,7 +23,21 @@ module.exports = {
     rules: [
       {
         test: /\.*css$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                mode: "local",
+                localIdentName: "[sha1:hash:hex:4]",
+                context: path.resolve(__dirname, "src"),
+                hashPrefix: "pwa"
+              }
+            }
+          },
+          "sass-loader"
+        ],
         include: path.resolve(__dirname, "src"),
         exclude: /node_modules/
       },
