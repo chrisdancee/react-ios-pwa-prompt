@@ -65,8 +65,7 @@ export default ({ delay = 1000, title = undefined, copy = undefined }) => {
               <div className={styles.pwaPromptDescription}>
                 <p id="pwa-prompt-description" className={styles.pwaPromptCopy}>
                   {copy ||
-                    `This website has app functionality. Add it to your home screen
-                  to use it in fullscreen and while offline.`}
+                    `This website has app functionality. Add it to your home screen to use it in fullscreen and while offline.`}
                 </p>
               </div>
             </div>
