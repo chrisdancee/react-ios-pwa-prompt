@@ -1,6 +1,6 @@
 # React-iOS-PWA-prompt
 
-[![npm version](http://img.shields.io/npm/v/react-ios-pwa-prompt.svg?style=flat)](https://npmjs.org/package/react-ios-pwa-prompt "View this project on npm")
+[![npm version](http://img.shields.io/npm/v/react-ios-pwa-prompt.svg?style=flat)](https://npmjs.org/package/react-ios-pwa-prompt "View this project on npm") ![Gzip file size](https://img.badgesize.io/chrisdancee/react-ios-pwa-prompt/master/dist/react-ios-pwa-prompt.js?compression=gzip)
 
 > Polyfilling PWA prompts for iOS
 
