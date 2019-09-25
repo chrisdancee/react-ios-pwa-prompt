@@ -6,10 +6,8 @@ import HomeScreenIcon from "./components/HomeScreenIcon";
 import styles from "./style.scss";
 
 export default ({ delay = 1000, title = undefined, copy = undefined }) => {
-  const [hasBeenDismissed, setDismissed] = useState(
-    localStorage.getItem("hasSeenPWAPrompt")
-  );
   const [isVisible, setVisibility] = useState(!Boolean(delay));
+  const hasBeenDismissed = localStorage.getItem("hasSeenPWAPrompt");
 
   useEffect(() => {
     if (!hasBeenDismissed && delay) {
