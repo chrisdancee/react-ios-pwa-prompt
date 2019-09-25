@@ -1,6 +1,6 @@
 {
   "name": "react-ios-pwa-prompt",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A React component to prompt the user to add the app as a PWA to the home screen with native iOS styles.",
   "main": "./dist/react-ios-pwa-prompt.js",
   "scripts": {
