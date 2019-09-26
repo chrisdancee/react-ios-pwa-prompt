@@ -2,9 +2,9 @@
 
 [![npm version](http://img.shields.io/npm/v/react-ios-pwa-prompt.svg?style=flat)](https://npmjs.org/package/react-ios-pwa-prompt "View this project on npm") ![Gzip file size](https://img.badgesize.io/chrisdancee/react-ios-pwa-prompt/master/dist/react-ios-pwa-prompt.js?compression=gzip)
 
-> Polyfilling PWA prompts for iOS
+> Polyfilling PWAs for iOS
 
-A React component that provides a customisable Progressive Web App (PWA) prompt to 'Add to Home Screen', matching native iOS <=12 or 13 styles for both light and dark UI modes. This behaviour is inherent on Android devices, yet does not happen on iOS. This component aims to provide a simple way to provide this functionality for websites that are PWA-ready.
+A React component that provides a customisable Progressive Web App (PWA) prompt telling the user to 'Add to Home Screen'. The prompt behaviour is baked in to Android devices, yet iOS is still lagging behind. This component aims to provide a simple way to provide this functionality on iOS for websites that are PWA-ready. The prompt styles closely match iOS designs for both light and dark UI modes to appear native to the user.
 
 <hr>
 
@@ -14,31 +14,39 @@ A React component that provides a customisable Progressive Web App (PWA) prompt 
 
 ## Features
 
-- 🛠 Customisable delay, title and content.
-- ☎️ Uses LocalStorage to only notify the user once.
-- 📱 Detects user's iOS version and UI color scheme to provide native looking prompt
+- 🛠 Fully configurable, set how many times you want to see it, and after how many page visits.
+- 📃 PWA available offline? In full screen mode? Customise the content of your prompts message through props.
+- ⚡️ Efficient. Very little overhead for non-iOS devices and does as little work as needed for each page load.
+- 📱 Detects user's iOS version to provide the correct icon set.
+- 🌕 Will display a dark mode if enabled on iOS 13.
 
 ## Usage
 
-Add `react-ios-pwa-prompt` as a dependency using `yarn add react-ios-pwa-prompt`.
+1. Add `react-ios-pwa-prompt` as a dependency using `yarn add react-ios-pwa-prompt`.
 
-Import into your project:
+2. Import into your project:
 
 ```
 import PWAPrompt from 'react-ios-pwa-prompt'
 ```
 
-Use the component:
+3. Render the component:
 
 ```
 <PWAPrompt />
 ```
 
-There are also optional props that you can pass to the component:
+4. Add optional props to configure:
 
-- `delay` pass an integer in ms to add a delay to the prompt
-- `title` pass a string to customise the title of the prompt
-- `copy` pass a string to customise the body of the prompt
+- `timesToShow`: pass an integer to configure how many times to show the prompt, will default to 1
+- `promptOnVisit`: pass an integer for the when to start showing the prompt, will default to 1 (the first page visit)
+- `delay`: pass an integer in ms to add a delay to the prompt
+- `title`: pass a string to customise the title of the prompt
+- `copy`: pass a string to customise the body of the prompt
+
+```
+<PWAPrompt promptOnVisit={1} timesToShow={3}>
+```
 
 ## Examples:
 
