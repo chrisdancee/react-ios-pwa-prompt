@@ -17,6 +17,9 @@ export default ({
   promptOnVisit = 1,
   title = undefined,
   copy = undefined,
+  copyAddHomeButtonLabel = undefined,
+  copyShareButtonLabel = undefined,
+  copyClosePrompt = undefined,
   delay = 1000
 }) => {
   let promptData = JSON.parse(localStorage.getItem("iosPwaPrompt"));
@@ -40,7 +43,16 @@ export default ({
       );
 
       if (aboveMinVisits) {
-        return <PWAPrompt delay={delay} title={title} copy={copy} />;
+        return (
+          <PWAPrompt
+            delay={delay}
+            title={title}
+            copy={copy}
+            copyAddHomeButtonLabel={copyAddHomeButtonLabel}
+            copyShareButtonLabel={copyShareButtonLabel}
+            copyClosePrompt={copyClosePrompt}
+          />
+        );
       }
     }
   }
