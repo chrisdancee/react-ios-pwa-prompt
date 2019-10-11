@@ -7,8 +7,8 @@ import styles from "./PWAPrompt.styles.scss";
 
 const PWAPrompt = ({
     delay,
-    title,
-    copy,
+    copyTitle,
+    copyBody,
     copyAddHomeButtonLabel,
     copyShareButtonLabel,
     copyClosePrompt
@@ -46,7 +46,7 @@ const PWAPrompt = ({
       >
         <div className={styles.pwaPromptHeader}>
           <p id="pwa-prompt-title" className={styles.pwaPromptTitle}>
-            {title || `Add to Home Screen`}
+            {copyTitle || `Add to Home Screen`}
           </p>
           <button className={styles.pwaPromptCancel} onClick={dismissPrompt}>
             {copyClosePrompt || 'Cancel'}
@@ -55,7 +55,7 @@ const PWAPrompt = ({
         <div className={styles.pwaPromptBody}>
           <div className={styles.pwaPromptDescription}>
             <p id="pwa-prompt-description" className={styles.pwaPromptCopy}>
-              {copy ||
+              {copyBody ||
                 `This website has app functionality. Add it to your home screen to use it in fullscreen and while offline.`}
             </p>
           </div>

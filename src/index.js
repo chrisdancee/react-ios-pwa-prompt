@@ -15,8 +15,8 @@ const deviceCheck = () => {
 export default ({
   timesToShow = 1,
   promptOnVisit = 1,
-  title = undefined,
-  copy = undefined,
+  copyTitle = undefined,
+  copyBody = undefined,
   copyAddHomeButtonLabel = undefined,
   copyShareButtonLabel = undefined,
   copyClosePrompt = undefined,
@@ -46,8 +46,8 @@ export default ({
         return (
           <PWAPrompt
             delay={delay}
-            title={title}
-            copy={copy}
+            copyTitle={copyTitle}
+            copyBody={copyBody}
             copyAddHomeButtonLabel={copyAddHomeButtonLabel}
             copyShareButtonLabel={copyShareButtonLabel}
             copyClosePrompt={copyClosePrompt}
