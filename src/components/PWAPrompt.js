@@ -5,7 +5,14 @@ import HomeScreenIcon from "./HomeScreenIcon";
 
 import styles from "./PWAPrompt.styles.scss";
 
-const PWAPrompt = ({ delay, title, copy }) => {
+const PWAPrompt = ({
+    delay,
+    copyTitle,
+    copyBody,
+    copyAddHomeButtonLabel,
+    copyShareButtonLabel,
+    copyClosePrompt
+  }) => {
   useEffect(() => {
     if (delay) {
       setTimeout(() => setVisibility(true), delay);
@@ -39,16 +46,16 @@ const PWAPrompt = ({ delay, title, copy }) => {
       >
         <div className={styles.pwaPromptHeader}>
           <p id="pwa-prompt-title" className={styles.pwaPromptTitle}>
-            {title || `Add to Home Screen`}
+            {copyTitle || `Add to Home Screen`}
           </p>
           <button className={styles.pwaPromptCancel} onClick={dismissPrompt}>
-            Cancel
+            {copyClosePrompt || 'Cancel'}
           </button>
         </div>
         <div className={styles.pwaPromptBody}>
           <div className={styles.pwaPromptDescription}>
             <p id="pwa-prompt-description" className={styles.pwaPromptCopy}>
-              {copy ||
+              {copyBody ||
                 `This website has app functionality. Add it to your home screen to use it in fullscreen and while offline.`}
             </p>
           </div>
@@ -57,7 +64,7 @@ const PWAPrompt = ({ delay, title, copy }) => {
           <div className={styles.pwaPromptInstructionStep}>
             <ShareIcon className={styles.pwaPromptShareIcon} modern={isiOS13} />
             <p className={`${styles.pwaPromptCopy} ${styles.bold}`}>
-              1) Press the 'Share' button
+              {copyShareButtonLabel || `1) Press the 'Share' button`}
             </p>
           </div>
           <div className={styles.pwaPromptInstructionStep}>
@@ -66,7 +73,7 @@ const PWAPrompt = ({ delay, title, copy }) => {
               modern={isiOS13}
             />
             <p className={`${styles.pwaPromptCopy} ${styles.bold}`}>
-              2) Press 'Add to Home Screen'
+              {copyAddHomeButtonLabel || `2) Press 'Add to Home Screen'`}
             </p>
           </div>
         </div>
