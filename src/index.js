@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React from "react";
 
 import PWAPrompt from "./components/PWAPrompt";
 
@@ -16,11 +16,11 @@ export default ({
   timesToShow = 1,
   promptOnVisit = 1,
   permanentlyHideOnDismiss = true,
-  copyTitle = undefined,
-  copyBody = undefined,
-  copyAddHomeButtonLabel = undefined,
-  copyShareButtonLabel = undefined,
-  copyClosePrompt = undefined,
+  copyTitle = "Add to Home Screen",
+  copyBody = "This website has app functionality. Add it to your home screen to use it in fullscreen and while offline.",
+  copyShareButtonLabel = "1) Press the 'Share' button",
+  copyAddHomeButtonLabel = "2) Press 'Add to Home Screen'",
+  copyClosePrompt = "Cancel",
   delay = 1000
 }) => {
   let promptData = JSON.parse(localStorage.getItem("iosPwaPrompt"));

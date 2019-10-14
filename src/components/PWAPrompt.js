@@ -58,17 +58,16 @@ const PWAPrompt = ({
       >
         <div className={styles.pwaPromptHeader}>
           <p id="pwa-prompt-title" className={styles.pwaPromptTitle}>
-            {copyTitle || `Add to Home Screen`}
+            {copyTitle}
           </p>
           <button className={styles.pwaPromptCancel} onClick={dismissPrompt}>
-            {copyClosePrompt || "Cancel"}
+            {copyClosePrompt}
           </button>
         </div>
         <div className={styles.pwaPromptBody}>
           <div className={styles.pwaPromptDescription}>
             <p id="pwa-prompt-description" className={styles.pwaPromptCopy}>
-              {copyBody ||
-                `This website has app functionality. Add it to your home screen to use it in fullscreen and while offline.`}
+              {copyBody}
             </p>
           </div>
         </div>
@@ -76,7 +75,7 @@ const PWAPrompt = ({
           <div className={styles.pwaPromptInstructionStep}>
             <ShareIcon className={styles.pwaPromptShareIcon} modern={isiOS13} />
             <p className={`${styles.pwaPromptCopy} ${styles.bold}`}>
-              {copyShareButtonLabel || `1) Press the 'Share' button`}
+              {copyShareButtonLabel}
             </p>
           </div>
           <div className={styles.pwaPromptInstructionStep}>
@@ -85,7 +84,7 @@ const PWAPrompt = ({
               modern={isiOS13}
             />
             <p className={`${styles.pwaPromptCopy} ${styles.bold}`}>
-              {copyAddHomeButtonLabel || `2) Press 'Add to Home Screen'`}
+              {copyAddHomeButtonLabel}
             </p>
           </div>
         </div>
