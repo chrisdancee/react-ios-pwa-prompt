@@ -15,6 +15,7 @@ const deviceCheck = () => {
 export default ({
   timesToShow = 1,
   promptOnVisit = 1,
+  permanentlyHideOnDismiss = true,
   copyTitle = undefined,
   copyBody = undefined,
   copyAddHomeButtonLabel = undefined,
@@ -51,6 +52,9 @@ export default ({
             copyAddHomeButtonLabel={copyAddHomeButtonLabel}
             copyShareButtonLabel={copyShareButtonLabel}
             copyClosePrompt={copyClosePrompt}
+            permanentlyHideOnDismiss={permanentlyHideOnDismiss}
+            promptData={promptData}
+            maxVisits={timesToShow + promptOnVisit}
           />
         );
       }
