@@ -6,13 +6,16 @@ import HomeScreenIcon from "./HomeScreenIcon";
 import styles from "./PWAPrompt.styles.scss";
 
 const PWAPrompt = ({
-    delay,
-    copyTitle,
-    copyBody,
-    copyAddHomeButtonLabel,
-    copyShareButtonLabel,
-    copyClosePrompt
-  }) => {
+  delay,
+  copyTitle,
+  copyBody,
+  copyAddHomeButtonLabel,
+  copyShareButtonLabel,
+  copyClosePrompt,
+  permanentlyHideOnDismiss,
+  promptData,
+  maxVisits
+}) => {
   useEffect(() => {
     if (delay) {
       setTimeout(() => setVisibility(true), delay);
@@ -28,6 +31,15 @@ const PWAPrompt = ({
 
   const dismissPrompt = () => {
     setVisibility(false);
+    if (permanentlyHideOnDismiss) {
+      localStorage.setItem(
+        "iosPwaPrompt",
+        JSON.stringify({
+          ...promptData,
+          visits: maxVisits
+        })
+      );
+    }
   };
 
   return (
@@ -49,7 +61,7 @@ const PWAPrompt = ({
             {copyTitle || `Add to Home Screen`}
           </p>
           <button className={styles.pwaPromptCancel} onClick={dismissPrompt}>
-            {copyClosePrompt || 'Cancel'}
+            {copyClosePrompt || "Cancel"}
           </button>
         </div>
         <div className={styles.pwaPromptBody}>

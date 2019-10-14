@@ -38,14 +38,15 @@ import PWAPrompt from 'react-ios-pwa-prompt'
 
 4. Add optional props to configure:
 
-- `timesToShow`: pass an integer to configure how many times to show the prompt, will default to 1
-- `promptOnVisit`: pass an integer for the when to start showing the prompt, will default to 1 (the first page visit)
-- `delay`: pass an integer in ms to add a delay to the prompt
-- `copyTitle`: pass a string to customise the title of the prompt
-- `copyBody`: pass a string to customise the body of the prompt
-- `copyAddHomeButtonLabel`: pass a string to customise label of add to home instruction
-- `copyShareButtonLabel`: pass a string to customise label of share button
-- `copyClosePrompt`: pass a string to customise label of close button
+- `timesToShow`: pass an integer to configure how many times to show the prompt. Defaults to 1.
+- `promptOnVisit`: pass an integer for the when to start showing the prompt Defaults to 1 (the first page visit).
+- `delay`: pass an integer in ms to add a delay to the prompt. Defaults to 1 second.
+- `copyTitle`: pass a string to customise the title of the prompt.
+- `copyBody`: pass a string to customise the body of the prompt.
+- `copyAddHomeButtonLabel`: pass a string to customise label of add to home instruction.
+- `copyShareButtonLabel`: pass a string to customise label of share button.
+- `copyClosePrompt`: pass a string to customise label of close button.
+- `permanentlyHideOnDismiss`: pass a boolean to configure whether to never show the prompt again once dismissed. Defaults to true (hide forever)
 
 ```
 <PWAPrompt promptOnVisit={1} timesToShow={3}>
