@@ -1,7 +1,6 @@
 import React from "react";
 
 const HomeScreenIcon = ({ className, modern = false }) => {
-  console.log(modern);
   if (modern) {
     return (
       <svg
