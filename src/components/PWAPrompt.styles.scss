@@ -41,6 +41,11 @@ $blue-color-modern-dark: rgb(88, 147, 247);
     opacity: 1;
   }
 
+  &.hidden {
+    pointer-events: none;
+    touch-action: none;
+  }
+
   &.modern {
     @media (prefers-color-scheme: dark) {
       & {
@@ -73,7 +78,8 @@ $blue-color-modern-dark: rgb(88, 147, 247);
   }
 
   &.hidden {
-    visibility: hidden;
+    pointer-events: none;
+    touch-action: none;
   }
 
   &.modern {
