@@ -38,11 +38,13 @@ $blue-color-modern-dark: rgb(88, 147, 247);
 
   &.visible {
     opacity: 1;
+    display: block;
   }
 
   &.hidden {
     pointer-events: none;
     touch-action: none;
+    display: none;
   }
 
   &.modern {
@@ -74,11 +76,13 @@ $blue-color-modern-dark: rgb(88, 147, 247);
 
   &.visible {
     transform: translateY(0);
+    display: block;
   }
 
   &.hidden {
     pointer-events: none;
     touch-action: none;
+    display: none;
   }
 
   &.modern {
