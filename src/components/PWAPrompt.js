@@ -42,6 +42,12 @@ const PWAPrompt = ({
     }
   };
 
+  const onTransitionOut = evt => {
+    if (!isVisible) {
+      evt.currentTarget.style.display = "none";
+    }
+  };
+
   return (
     <Fragment>
       <div
@@ -49,12 +55,14 @@ const PWAPrompt = ({
         aria-label="Close"
         role="button"
         onClick={dismissPrompt}
+        onTransitionEnd={onTransitionOut}
       />
       <div
         className={`${styles.pwaPrompt} ${visibilityClass} ${iOSClass}`}
         aria-describedby="pwa-prompt-description"
         aria-labelledby="pwa-prompt-title"
         role="dialog"
+        onTransitionEnd={onTransitionOut}
       >
         <div className={styles.pwaPromptHeader}>
           <p id="pwa-prompt-title" className={styles.pwaPromptTitle}>
