@@ -10,8 +10,7 @@ $border-color-legacy: rgba(0, 0, 0, 0.1);
 $border-color-modern-light: rgba(0, 0, 0, 0.1);
 $border-color-modern-dark: rgb(71, 71, 73);
 
-$font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
-  "Helvetica Neue", Arial, sans-serif;
+$font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
 $title-color-legacy: rgb(51, 51, 51);
 $title-color-modern-light: rgb(51, 51, 51);
@@ -39,11 +38,13 @@ $blue-color-modern-dark: rgb(88, 147, 247);
 
   &.visible {
     opacity: 1;
+    display: block;
   }
 
   &.hidden {
     pointer-events: none;
     touch-action: none;
+    display: none;
   }
 
   &.modern {
@@ -75,11 +76,13 @@ $blue-color-modern-dark: rgb(88, 147, 247);
 
   &.visible {
     transform: translateY(0);
+    display: block;
   }
 
   &.hidden {
     pointer-events: none;
     touch-action: none;
+    display: none;
   }
 
   &.modern {
@@ -137,6 +140,8 @@ $blue-color-modern-dark: rgb(88, 147, 247);
     font-size: 16px;
     padding: 0;
     margin: 0;
+    border: 0;
+    background: transparent;
 
     .modern & {
       color: $blue-color-modern-light;

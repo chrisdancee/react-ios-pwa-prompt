@@ -6,10 +6,13 @@ const deviceCheck = () => {
   const isiOS = /iphone|ipad|ipod/.test(
     window.navigator.userAgent.toLowerCase()
   );
+  // Detect desktop-class browsing from Safari on iPadOS 13
+  const isiPadOS = 
+    navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1;
   const isStandalone =
     "standalone" in window.navigator && window.navigator.standalone;
 
-  return isiOS && !isStandalone;
+  return (isiOS || isiPadOS) && !isStandalone;
 };
 
 export default ({
