@@ -25,6 +25,10 @@ $blue-color-legacy: rgb(45, 124, 246);
 $blue-color-modern-light: rgb(0, 122, 255);
 $blue-color-modern-dark: rgb(88, 147, 247);
 
+.noScroll {
+  overflow: hidden;
+}
+
 .pwaPromptOverlay {
   background-color: $overlay-color-legacy;
   left: 0;

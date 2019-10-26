@@ -16,21 +16,28 @@ const PWAPrompt = ({
   promptData,
   maxVisits
 }) => {
+  const [isVisible, setVisibility] = useState(!Boolean(delay));
+
   useEffect(() => {
     if (delay) {
       setTimeout(() => setVisibility(true), delay);
     }
   }, []);
 
-  const [isVisible, setVisibility] = useState(!Boolean(delay));
+  useEffect(() => {
+    if (isVisible) {
+      document.body.classList.add(styles.noScroll);
+    }
+  }, [isVisible]);
 
   const isiOS13 = /OS 13/.test(window.navigator.userAgent);
-
   const visibilityClass = isVisible ? styles.visible : styles.hidden;
   const iOSClass = isiOS13 ? styles.modern : "legacy";
 
   const dismissPrompt = () => {
+    document.body.classList.remove(styles.noScroll);
     setVisibility(false);
+
     if (permanentlyHideOnDismiss) {
       localStorage.setItem(
         "iosPwaPrompt",
