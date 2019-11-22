@@ -3,6 +3,14 @@ import React, { useEffect, useState } from "react";
 import PWAPrompt from "./components/PWAPrompt";
 
 const deviceCheck = () => {
+  if (!process.env.BROWSER) {
+    global = {
+      ...global,
+      window: { navigator: { platform: {}, standalone: {} } },
+      navigator: { platform: {}, maxTouchPoints: {} }
+    };
+  }
+
   const isiOS = /iphone|ipad|ipod/.test(
     window.navigator.userAgent.toLowerCase()
   );
