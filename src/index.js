@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import PWAPrompt from "./components/PWAPrompt";
 
@@ -26,14 +26,18 @@ export default ({
   delay = 1000,
   debug = false
 }) => {
-  let promptData = JSON.parse(localStorage.getItem("iosPwaPrompt"));
+  const [promptData, updatePromptData] = useState(
+    JSON.parse(localStorage.getItem("iosPwaPrompt"))
+  );
 
-  if (promptData === null) {
-    promptData = { isiOS: deviceCheck(), visits: 0 };
-    localStorage.setItem("iosPwaPrompt", JSON.stringify(promptData));
-  }
+  useEffect(() => {
+    if (promptData === null) {
+      updatePromptData({ isiOS: deviceCheck(), visits: 0 });
+      localStorage.setItem("iosPwaPrompt", JSON.stringify(promptData));
+    }
+  }, []);
 
-  if (promptData.isiOS || debug) {
+  if ((promptData && promptData.isiOS) || debug) {
     const aboveMinVisits = promptData.visits + 1 >= promptOnVisit;
     const belowMaxVisits = promptData.visits + 1 < promptOnVisit + timesToShow;
 
