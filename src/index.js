@@ -20,10 +20,11 @@ export default ({
   permanentlyHideOnDismiss = true,
   copyTitle = "Add to Home Screen",
   copyBody = "This website has app functionality. Add it to your home screen to use it in fullscreen and while offline.",
-  copyShareButtonLabel = "1) Press the 'Share' button",
-  copyAddHomeButtonLabel = "2) Press 'Add to Home Screen'",
+  copyShareButtonLabel = "1) Press the 'Share' button on the menu bar below.",
+  copyAddHomeButtonLabel = "2) Press 'Add to Home Screen'.",
   copyClosePrompt = "Cancel",
-  delay = 1000
+  delay = 1000,
+  debug = false
 }) => {
   let promptData = JSON.parse(localStorage.getItem("iosPwaPrompt"));
 
@@ -32,11 +33,11 @@ export default ({
     localStorage.setItem("iosPwaPrompt", JSON.stringify(promptData));
   }
 
-  if (promptData.isiOS) {
+  if (promptData.isiOS || debug) {
     const aboveMinVisits = promptData.visits + 1 >= promptOnVisit;
     const belowMaxVisits = promptData.visits + 1 < promptOnVisit + timesToShow;
 
-    if (belowMaxVisits) {
+    if (belowMaxVisits || debug) {
       localStorage.setItem(
         "iosPwaPrompt",
         JSON.stringify({
@@ -45,7 +46,7 @@ export default ({
         })
       );
 
-      if (aboveMinVisits) {
+      if (aboveMinVisits || debug) {
         return (
           <PWAPrompt
             delay={delay}

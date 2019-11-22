@@ -47,6 +47,7 @@ import PWAPrompt from 'react-ios-pwa-prompt'
 - `copyAddHomeButtonLabel`: pass a string to customise label of add to home instruction. Defaults to `2) Press 'Add to Home Screen'`.
 - `copyClosePrompt`: pass a string to customise label of close button. Defaults to `Cancel`.
 - `permanentlyHideOnDismiss`: pass a boolean to configure whether to never show the prompt again once dismissed. Defaults to `true` (hide forever).
+- `debug`: pass a boolean to put the prompt into debug mode, showing it on any device at all times. Defaults to `false` (production-mode).
 
 ```
 <PWAPrompt promptOnVisit={1} timesToShow={3} copyClosePrompt="Close" permanentlyHideOnDismiss={false}/>
