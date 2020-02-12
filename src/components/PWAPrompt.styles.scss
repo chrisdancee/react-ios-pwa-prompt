@@ -102,6 +102,9 @@ $blue-color-modern-dark: rgba(9, 132, 255, 1);
 .pwaPromptHeader {
   align-items: center;
   border-bottom: 1px solid $border-color-legacy;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
   border-width: 0.5px;
   display: flex;
   flex-flow: row nowrap;
@@ -164,6 +167,9 @@ $blue-color-modern-dark: rgba(9, 132, 255, 1);
 
   .pwaPromptDescription {
     border-bottom: 1px solid $border-color-legacy;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
     border-width: 0.5px;
     color: inherit;
     margin: 0 16px;
