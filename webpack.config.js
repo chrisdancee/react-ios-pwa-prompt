@@ -5,6 +5,7 @@ const libraryName = pkg.name;
 
 module.exports = {
   mode: "production",
+  target: "node",
   entry: path.join(__dirname, "./src/index.js"),
   output: {
     path: path.join(__dirname, "./dist"),
