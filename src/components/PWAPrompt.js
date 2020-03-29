@@ -58,47 +58,63 @@ const PWAPrompt = ({
   return (
     <Fragment>
       <div
-        className={`${styles.pwaPromptOverlay} ${visibilityClass} ${iOSClass}`}
+        className={`${styles.pwaPromptOverlay} ${visibilityClass} ${iOSClass} iOSPWA-overlay`}
         aria-label="Close"
         role="button"
         onClick={dismissPrompt}
         onTransitionEnd={onTransitionOut}
       />
       <div
-        className={`${styles.pwaPrompt} ${visibilityClass} ${iOSClass}`}
+        className={`${styles.pwaPrompt} ${visibilityClass} ${iOSClass} iOSPWA-container`}
         aria-describedby="pwa-prompt-description"
         aria-labelledby="pwa-prompt-title"
         role="dialog"
         onTransitionEnd={onTransitionOut}
       >
-        <div className={styles.pwaPromptHeader}>
-          <p id="pwa-prompt-title" className={styles.pwaPromptTitle}>
+        <div className={`${styles.pwaPromptHeader} iOSPWA-header`}>
+          <p
+            id="pwa-prompt-title"
+            className={`${styles.pwaPromptTitle} iOSPWA-title`}
+          >
             {copyTitle}
           </p>
-          <button className={styles.pwaPromptCancel} onClick={dismissPrompt}>
+          <button
+            className={`${styles.pwaPromptCancel} iOSPWA-cancel`}
+            onClick={dismissPrompt}
+          >
             {copyClosePrompt}
           </button>
         </div>
-        <div className={styles.pwaPromptBody}>
-          <div className={styles.pwaPromptDescription}>
-            <p id="pwa-prompt-description" className={styles.pwaPromptCopy}>
+        <div className={`${styles.pwaPromptBody} iOSPWA-body`}>
+          <div className={`${styles.pwaPromptDescription} iOSPWA-description`}>
+            <p
+              id="pwa-prompt-description"
+              className={`${styles.pwaPromptCopy} iOSPWA-description-copy`}
+            >
               {copyBody}
             </p>
           </div>
         </div>
-        <div className={styles.pwaPromptInstruction}>
-          <div className={styles.pwaPromptInstructionStep}>
-            <ShareIcon className={styles.pwaPromptShareIcon} modern={isiOS13} />
-            <p className={`${styles.pwaPromptCopy} ${styles.bold}`}>
+        <div className={`${styles.pwaPromptInstruction} iOSPWA-steps`}>
+          <div className={`${styles.pwaPromptInstructionStep} iOSPWA-step1`}>
+            <ShareIcon
+              className={`${styles.pwaPromptShareIcon} iOSPWA-step1-icon`}
+              modern={isiOS13}
+            />
+            <p
+              className={`${styles.pwaPromptCopy} ${styles.bold} iOSPWA-step1-copy`}
+            >
               {copyShareButtonLabel}
             </p>
           </div>
-          <div className={styles.pwaPromptInstructionStep}>
+          <div className={`${styles.pwaPromptInstructionStep} iOSPWA-step2`}>
             <HomeScreenIcon
-              className={styles.pwaPromptHomeIcon}
+              className={`${styles.pwaPromptHomeIcon} iOSPWA-step2-icon`}
               modern={isiOS13}
             />
-            <p className={`${styles.pwaPromptCopy} ${styles.bold}`}>
+            <p
+              className={`${styles.pwaPromptCopy} ${styles.bold} iOSPWA-step2-copy`}
+            >
               {copyAddHomeButtonLabel}
             </p>
           </div>
