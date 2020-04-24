@@ -20,7 +20,14 @@ const PWAPrompt = ({
 
   useEffect(() => {
     if (delay) {
-      setTimeout(() => setVisibility(true), delay);
+      setTimeout(() => {
+        // Prevent keyboard appearing over the prompt if a text input has autofocus set
+        if (document.activeElement) {
+          document.activeElement.blur();
+        }
+
+        setVisibility(true);
+      }, delay);
     }
   }, []);
 
