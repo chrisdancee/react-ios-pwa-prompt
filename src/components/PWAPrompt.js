@@ -14,7 +14,8 @@ const PWAPrompt = ({
   copyClosePrompt,
   permanentlyHideOnDismiss,
   promptData,
-  maxVisits
+  maxVisits,
+  onCancel
 }) => {
   const [isVisible, setVisibility] = useState(!Boolean(delay));
 
@@ -47,6 +48,8 @@ const PWAPrompt = ({
         })
       );
     }
+
+    onCancel();
   };
 
   const onTransitionOut = evt => {
