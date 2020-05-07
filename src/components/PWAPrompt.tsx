@@ -2,8 +2,22 @@ import React, { Fragment, useEffect, useState } from "react";
 
 import ShareIcon from "./ShareIcon";
 import HomeScreenIcon from "./HomeScreenIcon";
+import { PromptData } from "../index";
 
-import styles from "./PWAPrompt.styles.scss";
+// @ts-ignore
+import * as styles from "./PWAPrompt.styles.scss";
+
+interface PWAPromptProps {
+  delay: number;
+  copyTitle: string;
+  copyBody: string;
+  copyAddHomeButtonLabel: string;
+  copyShareButtonLabel: string;
+  copyClosePrompt: string;
+  permanentlyHideOnDismiss: boolean;
+  promptData: PromptData;
+  maxVisits: number;
+}
 
 const PWAPrompt = ({
   delay,
@@ -14,9 +28,9 @@ const PWAPrompt = ({
   copyClosePrompt,
   permanentlyHideOnDismiss,
   promptData,
-  maxVisits
-}) => {
-  const [isVisible, setVisibility] = useState(!Boolean(delay));
+  maxVisits,
+}: PWAPromptProps) => {
+  const [isVisible, setVisibility] = useState(!delay);
 
   useEffect(() => {
     if (delay) {
@@ -43,15 +57,15 @@ const PWAPrompt = ({
         "iosPwaPrompt",
         JSON.stringify({
           ...promptData,
-          visits: maxVisits
+          visits: maxVisits,
         })
       );
     }
   };
 
-  const onTransitionOut = evt => {
+  const onTransitionOut = (event: React.TransitionEvent<HTMLDivElement>) => {
     if (!isVisible) {
-      evt.currentTarget.style.display = "none";
+      event.currentTarget.style.display = "none";
     }
   };
 
