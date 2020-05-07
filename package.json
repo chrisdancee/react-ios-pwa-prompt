@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/chrisdancee/react-ios-pwa-prompt.git"
   },
-  "main": "./dist/react-ios-pwa-prompt.js",
+  "main": "./dist/index.js",
   "scripts": {
     "check-types": "tsc",
     "check-types:watch": "tsc --watch",
@@ -31,6 +31,7 @@
     "react-dom": ">=16.8.0"
   },
   "devDependencies": {
+    "@types/node-sass": "^4.11.0",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.7",
     "css-loader": "^3.4.2",

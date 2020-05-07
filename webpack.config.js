@@ -9,7 +9,7 @@ module.exports = {
   entry: path.join(__dirname, "./src/index.tsx"),
   output: {
     path: path.join(__dirname, "./dist"),
-    filename: "react-ios-pwa-prompt.js",
+    filename: "index.js",
     library: libraryName,
     libraryTarget: "umd",
     publicPath: "/dist/",

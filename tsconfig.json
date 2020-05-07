@@ -1,29 +1,24 @@
 {
   "compilerOptions": {
-    // Base directory to resolve non-relative module names (project root)
-    "baseUrl": ".",
-    // Search under node_modules for non-relative imports.
-    "moduleResolution": "node",
-    "outDir": "./dist/",
-    // Enable strictest settings like strictNullChecks & noImplicitAny.
-    "strict": true,
-    // Disallow features that require cross-file information for emit.
-    // Cross-file information is not supported by Babel.
-    "isolatedModules": true,
-    // Import non-ES modules as default imports.
-    "esModuleInterop": true,
-    // Allow default imports from modules with no default export (e.g
-    // import React from "React")
-    "allowSyntheticDefaultImports": true,
-    "lib": ["dom", "es2018"],
-    "declaration": true,
-    "sourceMap": true,
-    "noImplicitAny": true,
-    "module": "commonjs",
+    "outDir": "dist",
+    "module": "esnext",
     "target": "es5",
+    "lib": ["es6", "dom", "es2016", "es2017"],
+    "sourceMap": true,
+    "allowJs": false,
     "jsx": "react",
-    "allowJs": true
+    "declaration": true,
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }
