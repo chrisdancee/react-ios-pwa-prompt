@@ -48,7 +48,6 @@ import PWAPrompt from 'react-ios-pwa-prompt'
 - `copyClosePrompt`: pass a string to customise label of close button. Defaults to `Cancel`.
 - `permanentlyHideOnDismiss`: pass a boolean to configure whether to never show the prompt again once dismissed. Defaults to `true` (hide forever).
 - `debug`: pass a boolean to put the prompt into debug mode, showing it on any device at all times. Defaults to `false` (production-mode).
-- `onClose`: pass a function which is going to be executed as soon as the prompt is closing whether be clicking `Cancel` or by clicking somewhere else on the page. Defaults to empty function.
 
 ```
 <PWAPrompt promptOnVisit={1} timesToShow={3} copyClosePrompt="Close" permanentlyHideOnDismiss={false}/>
