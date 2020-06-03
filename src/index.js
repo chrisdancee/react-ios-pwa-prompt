@@ -24,7 +24,8 @@ export default ({
   copyAddHomeButtonLabel = "2) Press 'Add to Home Screen'.",
   copyClosePrompt = "Cancel",
   delay = 1000,
-  debug = false
+  debug = false,
+  onClose = () => {},
 }) => {
   let promptData = JSON.parse(localStorage.getItem("iosPwaPrompt"));
 
@@ -42,7 +43,7 @@ export default ({
         "iosPwaPrompt",
         JSON.stringify({
           ...promptData,
-          visits: promptData.visits + 1
+          visits: promptData.visits + 1,
         })
       );
 
@@ -58,6 +59,7 @@ export default ({
             permanentlyHideOnDismiss={permanentlyHideOnDismiss}
             promptData={promptData}
             maxVisits={timesToShow + promptOnVisit}
+            onClose={onClose}
           />
         );
       }

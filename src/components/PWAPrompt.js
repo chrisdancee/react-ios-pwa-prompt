@@ -14,7 +14,8 @@ const PWAPrompt = ({
   copyClosePrompt,
   permanentlyHideOnDismiss,
   promptData,
-  maxVisits
+  maxVisits,
+  onClose,
 }) => {
   const [isVisible, setVisibility] = useState(!Boolean(delay));
 
@@ -34,7 +35,7 @@ const PWAPrompt = ({
   const visibilityClass = isVisible ? styles.visible : styles.hidden;
   const iOSClass = isiOS13 ? styles.modern : "legacy";
 
-  const dismissPrompt = () => {
+  const dismissPrompt = (evt) => {
     document.body.classList.remove(styles.noScroll);
     setVisibility(false);
 
@@ -43,13 +44,17 @@ const PWAPrompt = ({
         "iosPwaPrompt",
         JSON.stringify({
           ...promptData,
-          visits: maxVisits
+          visits: maxVisits,
         })
       );
     }
+
+    if (typeof onClose === "function") {
+      onClose(evt);
+    }
   };
 
-  const onTransitionOut = evt => {
+  const onTransitionOut = (evt) => {
     if (!isVisible) {
       evt.currentTarget.style.display = "none";
     }
