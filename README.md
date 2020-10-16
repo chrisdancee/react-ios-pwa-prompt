@@ -41,6 +41,7 @@ import PWAPrompt from 'react-ios-pwa-prompt'
 - `timesToShow`: pass an integer to configure how many times to show the prompt. Defaults to `1`.
 - `promptOnVisit`: pass an integer for the when to start showing the prompt. Defaults to `1` (the first page visit).
 - `delay`: pass an integer in ms to add a delay to the prompt. Defaults to `1000`.
+- `onClose`: pass a function to call upon closing the prompt. Passes the event object as the function argument. Defaults to a noop.
 - `copyTitle`: pass a string to customise the title of the prompt. Defaults to `Add to Home Screen`.
 - `copyBody`: pass a string to customise the body of the prompt. Defaults to `This website has app functionality. Add it to your home screen to use it in fullscreen and while offline.`.
 - `copyShareButtonLabel`: pass a string to customise label of share button. Defaults to `1) Press the 'Share' button`.

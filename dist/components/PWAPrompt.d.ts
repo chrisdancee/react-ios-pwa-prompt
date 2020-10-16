@@ -10,6 +10,7 @@ interface PWAPromptProps {
     permanentlyHideOnDismiss: boolean;
     promptData: PromptData;
     maxVisits: number;
+    onClose?: () => void;
 }
-declare const PWAPrompt: ({ delay, copyTitle, copyBody, copyAddHomeButtonLabel, copyShareButtonLabel, copyClosePrompt, permanentlyHideOnDismiss, promptData, maxVisits, }: PWAPromptProps) => JSX.Element;
+declare const PWAPrompt: ({ delay, copyTitle, copyBody, copyAddHomeButtonLabel, copyShareButtonLabel, copyClosePrompt, permanentlyHideOnDismiss, promptData, maxVisits, onClose, }: PWAPromptProps) => JSX.Element;
 export default PWAPrompt;

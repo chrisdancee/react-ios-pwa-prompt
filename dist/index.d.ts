@@ -1,4 +1,4 @@
-import React from "react";
+import { ReactNode } from "react";
 export interface PromptData {
     isiOS: boolean;
     visits: number;
@@ -16,7 +16,7 @@ export interface PromptProps {
     debug: boolean;
 }
 declare const Prompt: {
-    ({ timesToShow, promptOnVisit, permanentlyHideOnDismiss, copyTitle, copyBody, copyShareButtonLabel, copyAddHomeButtonLabel, copyClosePrompt, delay, debug, }: PromptProps): React.ReactNode;
+    ({ timesToShow, promptOnVisit, permanentlyHideOnDismiss, copyTitle, copyBody, copyShareButtonLabel, copyAddHomeButtonLabel, copyClosePrompt, delay, debug, }: PromptProps): ReactNode;
     defaultProps: {
         timesToShow: number;
         promptOnVisit: number;

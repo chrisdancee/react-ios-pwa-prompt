@@ -17,6 +17,7 @@ interface PWAPromptProps {
   permanentlyHideOnDismiss: boolean;
   promptData: PromptData;
   maxVisits: number;
+  onClose?: () => void;
 }
 
 const PWAPrompt = ({
@@ -29,12 +30,20 @@ const PWAPrompt = ({
   permanentlyHideOnDismiss,
   promptData,
   maxVisits,
+  onClose = () => {},
 }: PWAPromptProps) => {
   const [isVisible, setVisibility] = useState(!delay);
 
   useEffect(() => {
     if (delay) {
-      setTimeout(() => setVisibility(true), delay);
+      setTimeout(() => {
+        // Prevent keyboard appearing over the prompt if a text input has autofocus set
+        if (document.activeElement instanceof HTMLElement) {
+          document.activeElement.blur();
+        }
+
+        setVisibility(true);
+      }, delay);
     }
   }, []);
 
@@ -61,11 +70,13 @@ const PWAPrompt = ({
         })
       );
     }
+    onClose();
   };
 
   const onTransitionOut = (event: React.TransitionEvent<HTMLDivElement>) => {
     if (!isVisible) {
       event.currentTarget.style.display = "none";
+      onClose();
     }
   };
 
