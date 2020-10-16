@@ -6,19 +6,19 @@ const libraryName = pkg.name;
 module.exports = {
   mode: "production",
   target: "node",
-  entry: path.join(__dirname, "./src/index.js"),
+  entry: path.join(__dirname, "./src/index.tsx"),
   output: {
     path: path.join(__dirname, "./dist"),
-    filename: "react-ios-pwa-prompt.js",
+    filename: "index.js",
     library: libraryName,
     libraryTarget: "umd",
     publicPath: "/dist/",
-    umdNamedDefine: true
+    umdNamedDefine: true,
   },
   node: {
     net: "empty",
     tls: "empty",
-    dns: "empty"
+    dns: "empty",
   },
   module: {
     rules: [
@@ -33,42 +33,42 @@ module.exports = {
                 mode: "local",
                 localIdentName: "[sha1:hash:hex:4]",
                 context: path.resolve(__dirname, "src"),
-                hashPrefix: "pwa"
-              }
-            }
+                hashPrefix: "pwa",
+              },
+            },
           },
-          "sass-loader"
+          "sass-loader",
         ],
         include: path.resolve(__dirname, "src"),
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
-        test: /\.(js|jsx)$/,
-        use: ["babel-loader"],
-        include: path.resolve(__dirname, "src"),
-        exclude: /node_modules/
-      }
-    ]
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
+    ],
   },
   resolve: {
+    extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
     alias: {
       react: path.resolve(__dirname, "./node_modules/react"),
-      "react-dom": path.resolve(__dirname, "./node_modules/react-dom")
+      "react-dom": path.resolve(__dirname, "./node_modules/react-dom"),
     },
-    symlinks: false
+    symlinks: false,
   },
   externals: {
     react: {
       commonjs: "react",
       commonjs2: "react",
       amd: "React",
-      root: "React"
+      root: "React",
     },
     "react-dom": {
       commonjs: "react-dom",
       commonjs2: "react-dom",
       amd: "ReactDOM",
-      root: "ReactDOM"
-    }
-  }
+      root: "ReactDOM",
+    },
+  },
 };

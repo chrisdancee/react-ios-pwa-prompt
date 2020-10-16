@@ -1,6 +1,11 @@
-import React from "react";
+import React, { ReactElement } from "react";
 
-const HomeScreenIcon = ({ className, modern = false }) => {
+export interface IconProps {
+  className: string;
+  modern: boolean;
+}
+
+const HomeScreenIcon = ({ className, modern }: IconProps): ReactElement => {
   if (modern) {
     return (
       <svg
@@ -30,6 +35,11 @@ const HomeScreenIcon = ({ className, modern = false }) => {
       />
     </svg>
   );
+};
+
+HomeScreenIcon.defaultProps = {
+  modern: false,
+  className: "",
 };
 
 export default HomeScreenIcon;

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { ReactElement } from "react";
+import { IconProps } from "./HomeScreenIcon";
 
-const ShareIcon = ({ className, modern = false }) => {
+const ShareIcon = ({ className, modern }: IconProps): ReactElement => {
   if (modern) {
     return (
       <svg
@@ -29,5 +30,10 @@ const ShareIcon = ({ className, modern = false }) => {
 };
 
 //#007aff
+
+ShareIcon.defaultProps = {
+  modern: false,
+  className: "",
+};
 
 export default ShareIcon;
