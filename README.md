@@ -18,7 +18,7 @@ A React component that provides a customisable Progressive Web App (PWA) prompt 
 - 📃 PWA available offline? In full screen mode? Customise the content of your prompts message through props.
 - ⚡️ Efficient. Very little overhead for non-iOS devices and does as little work as needed for each page load.
 - 📱 Detects user's iOS version to provide the correct icon set.
-- 🌕 Will display a dark mode if enabled on iOS 13.
+- 🌕 Will display a dark mode if enabled on iOS 13 and 14.
 
 ## Usage
 
