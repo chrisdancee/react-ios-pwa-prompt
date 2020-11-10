@@ -38,9 +38,9 @@ const PWAPrompt = ({
     }
   }, [isVisible]);
 
-  const isiOS13 = /OS 13/.test(window.navigator.userAgent);
+  const isiOS13AndUp = /OS (13|14)/.test(window.navigator.userAgent);
   const visibilityClass = isVisible ? styles.visible : styles.hidden;
-  const iOSClass = isiOS13 ? styles.modern : "legacy";
+  const iOSClass = isiOS13AndUp ? styles.modern : "legacy";
 
   const dismissPrompt = (evt) => {
     document.body.classList.remove(styles.noScroll);
@@ -111,7 +111,7 @@ const PWAPrompt = ({
           <div className={`${styles.pwaPromptInstructionStep} iOSPWA-step1`}>
             <ShareIcon
               className={`${styles.pwaPromptShareIcon} iOSPWA-step1-icon`}
-              modern={isiOS13}
+              modern={isiOS13AndUp}
             />
             <p
               className={`${styles.pwaPromptCopy} ${styles.bold} iOSPWA-step1-copy`}
@@ -122,7 +122,7 @@ const PWAPrompt = ({
           <div className={`${styles.pwaPromptInstructionStep} iOSPWA-step2`}>
             <HomeScreenIcon
               className={`${styles.pwaPromptHomeIcon} iOSPWA-step2-icon`}
-              modern={isiOS13}
+              modern={isiOS13AndUp}
             />
             <p
               className={`${styles.pwaPromptCopy} ${styles.bold} iOSPWA-step2-copy`}
