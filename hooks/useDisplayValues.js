@@ -8,6 +8,7 @@ const useDisplayValues = ({ updateKey }) => {
     isiOS: false,
     isiPadOS: false,
     shouldShowPrompt: false,
+    shouldClearStorage: false,
   });
 
   useEffect(() => {
@@ -33,6 +34,9 @@ const useDisplayValues = ({ updateKey }) => {
 
     const shouldShowPrompt = (isiOS || isiPadOS) && !isStandalone;
 
+    const storedData = JSON.parse(localStorage.getItem("iosPwaPrompt"));
+    const shouldClearStorage = !storedData.isiOS || visits > 100;
+
     setDisplayValues({
       colorScheme,
       iOSVersion,
@@ -40,6 +44,7 @@ const useDisplayValues = ({ updateKey }) => {
       isiOS,
       isiPadOS,
       shouldShowPrompt,
+      shouldClearStorage,
     });
   }, [updateKey]);
 
