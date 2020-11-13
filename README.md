@@ -4,6 +4,8 @@
 
 > Polyfilling PWAs for iOS
 
+[Check out the demo!](https://react-ios-pwa-prompt.vercel.app//)
+
 A React component that provides a customisable Progressive Web App (PWA) prompt telling the user to 'Add to Home Screen'. The prompt behaviour is baked in to Android devices, yet iOS is still lagging behind. This component aims to provide a simple way to provide this functionality on iOS for websites that are PWA-ready. The prompt styles closely match iOS designs for both light and dark UI modes to appear native to the user.
 
 <hr>
@@ -53,17 +55,3 @@ import PWAPrompt from 'react-ios-pwa-prompt'
 ```
 <PWAPrompt promptOnVisit={1} timesToShow={3} copyClosePrompt="Close" permanentlyHideOnDismiss={false}/>
 ```
-
-## Examples:
-
-iOS 12:
-
-<img src="https://user-images.githubusercontent.com/11626619/65392822-c902f280-dd70-11e9-8f81-a5099ca38d7f.png" width="312px">
-
-iOS 13 Light:
-
-<img src="https://user-images.githubusercontent.com/11626619/65392823-c902f280-dd70-11e9-9b9c-e782ec4e2721.png" width="312px">
-
-iOS 13 Dark:
-
-<img src="https://user-images.githubusercontent.com/11626619/65392824-c902f280-dd70-11e9-95c7-e58af3d1e71a.png" width="312px">
