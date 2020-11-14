@@ -3,12 +3,12 @@ $overlay-color-modern-light: rgba(10, 10, 10, 0.5);
 $overlay-color-modern-dark: rgba(10, 10, 10, 0.5);
 
 $bg-color-legacy: rgba(250, 250, 250, 0.8);
-$bg-color-modern-light: rgba(250, 250, 250, 0.8);
-$bg-color-modern-dark: rgba(30, 30, 30, 0.7);
+$bg-color-modern-light: rgba(255, 255, 255, 0.6);
+$bg-color-modern-dark: rgba(65, 65, 65, 0.7);
 
 $border-color-legacy: rgba(0, 0, 0, 0.1);
 $border-color-modern-light: rgba(60, 60, 67, 0.29);
-$border-color-modern-dark: rgba(84, 84, 88, 0.6);
+$border-color-modern-dark: rgba(140, 140, 140, 0.7);
 
 $font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
   "Helvetica Neue", Arial, sans-serif;
@@ -22,7 +22,7 @@ $font-color-modern-light: rgba(60, 60, 67, 0.6);
 $font-color-modern-dark: rgba(235, 235, 245, 0.6);
 
 $blue-color-legacy: rgb(45, 124, 246);
-$blue-color-modern-light: rgba(0, 122, 255, 1);
+$blue-color-modern-light: rgba(0, 85, 179, 1);
 $blue-color-modern-dark: rgba(9, 132, 255, 1);
 
 .noScroll {
@@ -90,10 +90,12 @@ $blue-color-modern-dark: rgba(9, 132, 255, 1);
 
   &.modern {
     background: $bg-color-modern-light;
+    filter: brightness(1.6);
 
     @media (prefers-color-scheme: dark) {
       & {
         background: $bg-color-modern-dark;
+        filter: brightness(1.1);
       }
     }
   }
@@ -265,7 +267,7 @@ $blue-color-modern-dark: rgba(9, 132, 255, 1);
       @media (prefers-color-scheme: dark) {
         & {
           color: $blue-color-modern-dark;
-          fill: $blue-color-modern-light;
+          fill: $blue-color-modern-dark;
         }
       }
     }
