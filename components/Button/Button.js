@@ -16,7 +16,7 @@ const Button = ({ children, ...props }) => (
         font-size: 16px;
         font-weight: 600;
         line-height: 20px;
-        margin: 0px;
+        margin: 20px 20px 0 0;
         max-width: 380px;
         outline: none;
         padding: 14px 24px;
@@ -25,6 +25,10 @@ const Button = ({ children, ...props }) => (
         text-decoration: none;
         touch-action: manipulation;
         width: 100%;
+      }
+
+      .secondary {
+        background: linear-gradient(to right, #f3a683 0%, #f19066 100%);
       }
     `}</style>
   </>

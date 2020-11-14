@@ -1,6 +1,6 @@
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useReducer, useState } from "react";
 
 import Button from "components/Button";
 import Conditions from "components/Conditions";
@@ -12,6 +12,7 @@ const Home = () => {
   });
 
   const [isDebug, setIsDebug] = useState(false);
+  const [localStorageKey, setLocalStorageKey] = useState(0);
 
   return (
     <>
@@ -35,8 +36,17 @@ const Home = () => {
 
       <div>
         <H1>React-iOS-PWA-prompt</H1>
-        <Conditions />
+        <Conditions key={localStorageKey} />
         <Button onClick={() => setIsDebug(Math.random())}>Force prompt</Button>
+        <Button
+          className="secondary"
+          onClick={() => {
+            localStorage.removeItem("iosPwaPrompt");
+            setLocalStorageKey(Math.random());
+          }}
+        >
+          Clear localStorage
+        </Button>
       </div>
 
       <style jsx>{`

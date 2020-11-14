@@ -37,9 +37,8 @@ const Conditions = () => {
             {shouldShowPrompt ? "should" : "should not"}
           </span>
           &nbsp;see the prompt
-          {shouldShowPrompt &&
-            shouldClearStorage &&
-            ", but you need to clear your localStorage"}
+          {shouldClearStorage &&
+            ", but you need to clear your localStorage first"}
         </span>
       </p>
 

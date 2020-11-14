@@ -35,7 +35,9 @@ const useDisplayValues = ({ updateKey }) => {
     const shouldShowPrompt = (isiOS || isiPadOS) && !isStandalone;
 
     const storedData = JSON.parse(localStorage.getItem("iosPwaPrompt")) || {};
-    const shouldClearStorage = !storedData.isiOS || storedData.visits > 100;
+
+    const shouldClearStorage =
+      Boolean(shouldShowPrompt) !== Boolean(storedData.isiOS);
 
     setDisplayValues({
       colorScheme,
