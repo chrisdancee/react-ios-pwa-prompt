@@ -11,6 +11,6 @@
     "next": "10.0.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-ios-pwa-prompt": "^1.8.3"
+    "react-ios-pwa-prompt": "^1.8.4"
   }
 }
