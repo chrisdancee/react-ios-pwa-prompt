@@ -1,6 +1,6 @@
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { useReducer, useState } from "react";
+import { useState } from "react";
 
 import Button from "components/Button";
 import Conditions from "components/Conditions";
@@ -35,7 +35,9 @@ const Home = () => {
       />
 
       <div>
-        <H1>React-iOS-PWA-prompt</H1>
+        <a href="https://github.com/chrisdancee/react-ios-pwa-prompt">
+          <H1>React-iOS-PWA-prompt</H1>
+        </a>
         <Conditions key={localStorageKey} />
         <Button onClick={() => setIsDebug(Math.random())}>Force prompt</Button>
         <Button

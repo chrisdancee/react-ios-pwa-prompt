@@ -8,6 +8,7 @@ const H1 = ({ children, ...props }) => (
         font-weight: 600;
         margin: 0;
         padding: 0;
+        text-decoration: underline;
       }
     `}</style>
   </>
