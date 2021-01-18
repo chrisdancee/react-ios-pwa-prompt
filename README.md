@@ -55,3 +55,31 @@ import PWAPrompt from 'react-ios-pwa-prompt'
 ```
 <PWAPrompt promptOnVisit={1} timesToShow={3} copyClosePrompt="Close" permanentlyHideOnDismiss={false}/>
 ```
+
+## Code-splitting
+
+You may want to use [code-splitting](https://reactjs.org/docs/code-splitting.html) to avoid unnecessarily loading the component (including styles and icons) when it isn't going to be shown.
+Use the exported `shouldShowPrompt` function to determine whether to import the component, for example:
+
+```jsx
+import shouldShowPrompt from "react-ios-pwa-prompt/src/shouldShowPrompt";
+
+const LazyPWAPrompt = React.lazy(() => import("react-ios-pwa-prompt"));
+
+function render() {
+  const options = {
+    timesToShow: 1,
+    promptOnVisit: 2,
+  };
+
+  if (shouldShowPrompt(options)) {
+    return (
+      <Suspense fallback={null}>
+        <LazyPWAPrompt {...options} />
+      </Suspense>
+    );
+  }
+  
+  return null;
+}
+```
