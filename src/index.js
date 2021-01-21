@@ -11,7 +11,9 @@ const deviceCheck = () => {
   const isStandalone =
     "standalone" in window.navigator && window.navigator.standalone;
 
-  return (isiOS || isiPadOS) && !isStandalone;
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+  return (isiOS || isiPadOS) && !isStandalone && isSafari;
 };
 
 export default ({
