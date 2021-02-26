@@ -13,12 +13,12 @@ module.exports = {
     library: libraryName,
     libraryTarget: "umd",
     publicPath: "/dist/",
-    umdNamedDefine: true
+    umdNamedDefine: true,
   },
   node: {
     net: "empty",
     tls: "empty",
-    dns: "empty"
+    dns: "empty",
   },
   module: {
     rules: [
@@ -33,42 +33,42 @@ module.exports = {
                 mode: "local",
                 localIdentName: "[sha1:hash:hex:4]",
                 context: path.resolve(__dirname, "src"),
-                hashPrefix: "pwa"
-              }
-            }
+                hashPrefix: "pwa",
+              },
+            },
           },
-          "sass-loader"
+          "sass-loader",
         ],
         include: path.resolve(__dirname, "src"),
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.(js|jsx)$/,
         use: ["babel-loader"],
         include: path.resolve(__dirname, "src"),
-        exclude: /node_modules/
-      }
-    ]
+        exclude: /node_modules/,
+      },
+    ],
   },
   resolve: {
     alias: {
       react: path.resolve(__dirname, "./node_modules/react"),
-      "react-dom": path.resolve(__dirname, "./node_modules/react-dom")
+      "react-dom": path.resolve(__dirname, "./node_modules/react-dom"),
     },
-    symlinks: false
+    symlinks: false,
   },
   externals: {
     react: {
       commonjs: "react",
       commonjs2: "react",
-      amd: "React",
-      root: "React"
+      amd: "react",
+      root: "React",
     },
     "react-dom": {
       commonjs: "react-dom",
       commonjs2: "react-dom",
       amd: "ReactDOM",
-      root: "ReactDOM"
-    }
-  }
+      root: "ReactDOM",
+    },
+  },
 };
