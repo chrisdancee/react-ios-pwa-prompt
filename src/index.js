@@ -26,6 +26,7 @@ export default ({
   delay = 1000,
   debug = false,
   onClose = () => {},
+  willNotShowPrompt = () => {},
 }) => {
   let promptData = JSON.parse(localStorage.getItem("iosPwaPrompt"));
 
@@ -64,6 +65,13 @@ export default ({
         );
       }
     }
+  }
+
+  /**
+   * Check prompt will show 
+   */
+  if (!promptData.isiOS || !aboveMinVisits || !belowMaxVisits) {
+      willNotShowPrompt()
   }
 
   return null;
