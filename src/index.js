@@ -14,7 +14,7 @@ const deviceCheck = () => {
   return (isiOS || isiPadOS) && !isStandalone;
 };
 
-export default ({
+export default React.memo(({
   timesToShow = 1,
   promptOnVisit = 1,
   permanentlyHideOnDismiss = true,
@@ -76,4 +76,4 @@ export default ({
   }
 
   return null;
-};
+});
