@@ -35,9 +35,10 @@ export default ({
     localStorage.setItem("iosPwaPrompt", JSON.stringify(promptData));
   }
 
+  const aboveMinVisits = promptData.visits + 1 >= promptOnVisit;
+  const belowMaxVisits = promptData.visits + 1 < promptOnVisit + timesToShow;
+
   if (promptData.isiOS || debug) {
-    const aboveMinVisits = promptData.visits + 1 >= promptOnVisit;
-    const belowMaxVisits = promptData.visits + 1 < promptOnVisit + timesToShow;
 
     if (belowMaxVisits || debug) {
       localStorage.setItem(
