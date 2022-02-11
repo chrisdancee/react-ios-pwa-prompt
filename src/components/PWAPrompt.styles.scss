@@ -125,7 +125,6 @@ $blue-color-modern-dark: rgba(9, 132, 255, 1);
 
   .pwaPromptTitle {
     color: $title-color-legacy;
-    font-family: $font-family;
     font-size: 18px;
     font-weight: 500;
     line-height: 1.125;
@@ -192,7 +191,6 @@ $blue-color-modern-dark: rgba(9, 132, 255, 1);
 
 .pwaPromptCopy {
   color: $font-color-legacy;
-  font-family: $font-family;
   font-size: 13px;
   line-height: 17px;
   margin: 0;
@@ -236,7 +234,6 @@ $blue-color-modern-dark: rgba(9, 132, 255, 1);
   .pwaPromptHomeIcon {
     flex: 0 0 auto;
     height: 30px;
-    margin-right: 32px;
     width: 25px;
   }
 

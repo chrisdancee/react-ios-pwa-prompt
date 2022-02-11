@@ -27,9 +27,10 @@ export default React.memo(({
   debug = false,
   onClose = () => {},
   willNotShowPrompt = () => {},
+  dir = "ltr",
+  font_family = "-apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,'Helvetica Neue', Arial, sans-serif",
 }) => {
   let promptData = JSON.parse(localStorage.getItem("iosPwaPrompt"));
-
   if (promptData === null) {
     promptData = { isiOS: deviceCheck(), visits: 0 };
     localStorage.setItem("iosPwaPrompt", JSON.stringify(promptData));
@@ -62,6 +63,8 @@ export default React.memo(({
             promptData={promptData}
             maxVisits={timesToShow + promptOnVisit}
             onClose={onClose}
+            dir={dir}
+            font_family={font_family}
           />
         );
       }
