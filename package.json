@@ -1,10 +1,10 @@
 {
   "name": "react-ios-pwa-prompt",
-  "version": "1.8.5",
+  "version": "1.8.4",
   "description": "A React component to prompt the user to add the app as a PWA to the home screen with native iOS styles.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/flashift/react-ios-pwa-prompt.git"
+    "url": "https://github.com/chrisdancee/react-ios-pwa-prompt.git"
   },
   "main": "./dist/react-ios-pwa-prompt.js",
   "scripts": {
