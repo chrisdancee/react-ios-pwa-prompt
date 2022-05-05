@@ -14,7 +14,7 @@ const deviceCheck = () => {
   return (isiOS || isiPadOS) && !isStandalone;
 };
 
-export default ({
+export default React.memo(({
   timesToShow = 1,
   promptOnVisit = 1,
   permanentlyHideOnDismiss = true,
@@ -26,17 +26,20 @@ export default ({
   delay = 1000,
   debug = false,
   onClose = () => {},
+  willNotShowPrompt = () => {},
+  dir = "ltr",
+  font_family = "-apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,'Helvetica Neue', Arial, sans-serif",
 }) => {
   let promptData = JSON.parse(localStorage.getItem("iosPwaPrompt"));
-
   if (promptData === null) {
     promptData = { isiOS: deviceCheck(), visits: 0 };
     localStorage.setItem("iosPwaPrompt", JSON.stringify(promptData));
   }
 
+  const aboveMinVisits = promptData.visits + 1 >= promptOnVisit;
+  const belowMaxVisits = promptData.visits + 1 < promptOnVisit + timesToShow;
+
   if (promptData.isiOS || debug) {
-    const aboveMinVisits = promptData.visits + 1 >= promptOnVisit;
-    const belowMaxVisits = promptData.visits + 1 < promptOnVisit + timesToShow;
 
     if (belowMaxVisits || debug) {
       localStorage.setItem(
@@ -60,11 +63,20 @@ export default ({
             promptData={promptData}
             maxVisits={timesToShow + promptOnVisit}
             onClose={onClose}
+            dir={dir}
+            font_family={font_family}
           />
         );
       }
     }
   }
 
+  /**
+   * Check prompt will show 
+   */
+  if (!promptData.isiOS || !aboveMinVisits || !belowMaxVisits) {
+      willNotShowPrompt()
+  }
+
   return null;
-};
+});

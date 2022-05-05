@@ -16,6 +16,8 @@ const PWAPrompt = ({
   promptData,
   maxVisits,
   onClose,
+  dir,
+  font_family,
 }) => {
   const [isVisible, setVisibility] = useState(!Boolean(delay));
 
@@ -41,6 +43,8 @@ const PWAPrompt = ({
   const isiOS13AndUp = /OS (13|14)/.test(window.navigator.userAgent);
   const visibilityClass = isVisible ? styles.visible : styles.hidden;
   const iOSClass = isiOS13AndUp ? styles.modern : "legacy";
+  const marginText = dir === "ltr" ? {marginLeft : 32} : {marginRight: 32};
+  const customFontFamily = {fontFamily: font_family};
 
   const dismissPrompt = (evt) => {
     document.body.classList.remove(styles.noScroll);
@@ -83,31 +87,34 @@ const PWAPrompt = ({
         role="dialog"
         onTransitionEnd={onTransitionOut}
       >
-        <div className={`${styles.pwaPromptHeader} iOSPWA-header`}>
+        <div dir={dir} className={`${styles.pwaPromptHeader} iOSPWA-header`}>
           <p
             id="pwa-prompt-title"
             className={`${styles.pwaPromptTitle} iOSPWA-title`}
+            style={customFontFamily}
           >
             {copyTitle}
           </p>
           <button
             className={`${styles.pwaPromptCancel} iOSPWA-cancel`}
             onClick={dismissPrompt}
+            style={customFontFamily}
           >
             {copyClosePrompt}
           </button>
         </div>
-        <div className={`${styles.pwaPromptBody} iOSPWA-body`}>
+        <div dir={dir} className={`${styles.pwaPromptBody} iOSPWA-body`}>
           <div className={`${styles.pwaPromptDescription} iOSPWA-description`}>
             <p
               id="pwa-prompt-description"
               className={`${styles.pwaPromptCopy} iOSPWA-description-copy`}
+              style={customFontFamily}
             >
               {copyBody}
             </p>
           </div>
         </div>
-        <div className={`${styles.pwaPromptInstruction} iOSPWA-steps`}>
+        <div dir={dir} className={`${styles.pwaPromptInstruction} iOSPWA-steps`}>
           <div className={`${styles.pwaPromptInstructionStep} iOSPWA-step1`}>
             <ShareIcon
               className={`${styles.pwaPromptShareIcon} iOSPWA-step1-icon`}
@@ -115,6 +122,7 @@ const PWAPrompt = ({
             />
             <p
               className={`${styles.pwaPromptCopy} ${styles.bold} iOSPWA-step1-copy`}
+              style={Object.assign(customFontFamily, marginText)}
             >
               {copyShareButtonLabel}
             </p>
@@ -126,6 +134,7 @@ const PWAPrompt = ({
             />
             <p
               className={`${styles.pwaPromptCopy} ${styles.bold} iOSPWA-step2-copy`}
+              style={Object.assign(customFontFamily, marginText)}
             >
               {copyAddHomeButtonLabel}
             </p>

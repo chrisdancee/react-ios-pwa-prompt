@@ -21,6 +21,8 @@ A React component that provides a customisable Progressive Web App (PWA) prompt 
 - ⚡️ Efficient. Very little overhead for non-iOS devices and does as little work as needed for each page load.
 - 📱 Detects user's iOS version to provide the correct icon set.
 - 🌕 Will display a dark mode if enabled on iOS 13 and 14.
+-  Support RTL languages like Arabic, Farsi, Persian, ...
+-  Custom font
 
 ## Usage
 
