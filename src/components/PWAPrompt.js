@@ -38,7 +38,7 @@ const PWAPrompt = ({
     }
   }, [isVisible]);
 
-  const isiOS13AndUp = /OS (13|14)/.test(window.navigator.userAgent);
+  const isiOS13AndUp = /OS (13|14|15|16)/.test(window.navigator.userAgent);
   const visibilityClass = isVisible ? styles.visible : styles.hidden;
   const iOSClass = isiOS13AndUp ? styles.modern : "legacy";
 
