@@ -4,8 +4,6 @@
 
 > Polyfilling PWAs for iOS
 
-[Check out the demo!](https://react-ios-pwa-prompt.vercel.app//)
-
 A React component that provides a customisable Progressive Web App (PWA) prompt telling the user to 'Add to Home Screen'. The prompt behaviour is baked in to Android devices, yet iOS is still lagging behind. This component aims to provide a simple way to provide this functionality on iOS for websites that are PWA-ready. The prompt styles closely match iOS designs for both light and dark UI modes to appear native to the user.
 
 <hr>
@@ -19,12 +17,11 @@ A React component that provides a customisable Progressive Web App (PWA) prompt 
 - 🛠 Fully configurable, set how many times you want to see it, and after how many page visits.
 - 📃 PWA available offline? In full screen mode? Customise the content of your prompts message through props.
 - ⚡️ Efficient. Very little overhead for non-iOS devices and does as little work as needed for each page load.
-- 📱 Detects user's iOS version to provide the correct icon set.
-- 🌕 Will display a dark mode if enabled on iOS 13 and 14.
+- 🌕 Light & dark mode available depending on user's settings.
 
 ## Usage
 
-1. Add `react-ios-pwa-prompt` as a dependency using `yarn add react-ios-pwa-prompt`.
+1. Add `react-ios-pwa-prompt` as a dependency using `pnpm add react-ios-pwa-prompt`.
 
 2. Import into your project:
 
@@ -40,18 +37,36 @@ import PWAPrompt from 'react-ios-pwa-prompt'
 
 4. Add optional props to configure:
 
-- `timesToShow`: pass an integer to configure how many times to show the prompt. Defaults to `1`.
-- `promptOnVisit`: pass an integer for the when to start showing the prompt. Defaults to `1` (the first page visit).
-- `delay`: pass an integer in ms to add a delay to the prompt. Defaults to `1000`.
-- `onClose`: pass a function to call upon closing the prompt. Passes the event object as the function argument. Defaults to a noop.
-- `copyTitle`: pass a string to customise the title of the prompt. Defaults to `Add to Home Screen`.
-- `copyBody`: pass a string to customise the body of the prompt. Defaults to `This website has app functionality. Add it to your home screen to use it in fullscreen and while offline.`.
-- `copyShareButtonLabel`: pass a string to customise label of share button. Defaults to `1) Press the 'Share' button`.
-- `copyAddHomeButtonLabel`: pass a string to customise label of add to home instruction. Defaults to `2) Press 'Add to Home Screen'`.
-- `copyClosePrompt`: pass a string to customise label of close button. Defaults to `Cancel`.
-- `permanentlyHideOnDismiss`: pass a boolean to configure whether to never show the prompt again once dismissed. Defaults to `true` (hide forever).
-- `debug`: pass a boolean to put the prompt into debug mode, showing it on any device at all times. Defaults to `false` (production-mode).
+| Prop                    | Description                                            | Default Value                                                                                             |
+| ----------------------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- |
+| timesToShow             | Number of consecutive visits to show the prompt        | 2                                                                                                         |
+| promptOnVisit           | On which visit should the first prompt be shown?       | 2                                                                                                         |
+| delay                   | Pass an integer in ms to add a delay to the prompt     | 1000                                                                                                      |
+| onClose                 | Callback function for once the prompt is dismisseed    | () => undefined                                                                                           |
+| copyTitle               | The title of the prompt                                | Add to Home Screen                                                                                        |
+| copySubtitle            | The subtitle of the prompt                             | String(window.location.href)                                                                              |
+| copyDescription         | The description of the prompt                          | This website has app functionality. Add it to your home screen to use it in fullscreen and while offline. |
+| copyShareStep           | The Share button copy                                  | Press the 'Share' button on the menu bar below                                                            |
+| copyAddToHomescreenStep | The Add To Homescreen button copy                      | Press 'Add to Home Screen'                                                                                |
+| appIconPath             | Path to an icon or favicon to be shown as the app icon | `https://s2.googleusercontent.com/s2/favicons?domain=${window.location.origin}`                           |
+| isShown                 | Can be set to true to manually show the prompt         | undefined                                                                                                 |
 
 ```
-<PWAPrompt promptOnVisit={1} timesToShow={3} copyClosePrompt="Close" permanentlyHideOnDismiss={false}/>
+<PWAPrompt promptOnVisit={1} timesToShow={1} copyClosePrompt="Close" />
+```
+
+4. Create your own trigger rules
+   You can easily set your own trigger conditions if you don't like the consecutive page loads approach. For example:
+
+```
+const [shouldShowPWAPrompt, setShouldShowPWAPrompt] = useState(false)
+
+useEffect(() => {
+    // 20% chance of popping up
+    setShouldShowPWAPrompt(Math.random() < 0.2)
+}, [])
+
+return (
+    <PWAPrompt isShown={shouldShowPWAPrompt} />
+)
 ```

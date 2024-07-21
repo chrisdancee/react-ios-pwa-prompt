@@ -1,0 +1,22 @@
+.icon {
+  height: 100%;
+  border: 0;
+}
+
+.circle {
+  fill: #363739;
+}
+
+.cross {
+  fill: #a3a4a9;
+}
+
+@media (prefers-color-scheme: light) {
+  .circle {
+    fill: #dedede;
+  }
+
+  .cross {
+    fill: #807f84;
+  }
+}

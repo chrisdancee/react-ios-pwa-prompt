@@ -1,0 +1,12 @@
+.icon {
+  color: #0a84ff;
+  fill: #0a84ff;
+  width: 20px;
+}
+
+@media (prefers-color-scheme: light) {
+  .icon {
+    color: #007aff;
+    fill: #007aff;
+  }
+}
