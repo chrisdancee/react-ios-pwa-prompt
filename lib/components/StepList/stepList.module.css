@@ -1,0 +1,6 @@
+.list {
+  list-style-type: none;
+  list-style: inside decimal;
+  margin: 0;
+  padding: 20px 30px;
+}

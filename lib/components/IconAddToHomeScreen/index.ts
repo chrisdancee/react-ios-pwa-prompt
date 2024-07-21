@@ -1,0 +1,1 @@
+export { IconAddToHomeScreen } from "./IconAddToHomeScreen";
