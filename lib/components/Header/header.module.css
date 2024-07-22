@@ -17,6 +17,8 @@
 .appIcon {
   border-radius: 7.5px;
   height: 60px;
+  min-height: 60px;
+  min-width: 60px;
   overflow: hidden;
   width: 60px;
 }
