@@ -16,11 +16,11 @@ export const useShouldShowPrompt = ({
   const [shouldShowPrompt, setShouldShowPrompt] = useState<boolean | undefined>(
     undefined
   );
-  const { isValidOS } = useDeviceAndVersion();
+  const { isValidOS, isStandalone } = useDeviceAndVersion();
   const { numberOfVisits } = useNumberOfVisits();
 
   useEffect(() => {
-    if (isValidOS !== undefined && numberOfVisits !== undefined) {
+    if (isValidOS !== undefined && numberOfVisits !== undefined && !isStandalone) {
       const aboveMinVisits = numberOfVisits + 1 >= promptOnVisit;
       const belowMaxVisits = numberOfVisits + 1 < promptOnVisit + timesToShow;
 
