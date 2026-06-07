@@ -47,7 +47,7 @@ import PWAPrompt from 'react-ios-pwa-prompt'
 | copySubtitle            | The subtitle of the prompt                             | String(window.location.href)                                                                              |
 | copyDescription         | The description of the prompt                          | This website has app functionality. Add it to your home screen to use it in fullscreen and while offline. |
 | copyShareStep           | The Share button copy                                  | Press the 'Share' button on the menu bar below                                                            |
-| copyAddToHomescreenStep | The Add To Homescreen button copy                      | Press 'Add to Home Screen'                                                                                |
+| copyAddToHomeScreenStep | The Add To Homescreen button copy                      | Press 'Add to Home Screen'                                                                                |
 | appIconPath             | Path to an icon or favicon to be shown as the app icon | `https://s2.googleusercontent.com/s2/favicons?domain=${window.location.origin}`                           |
 | isShown                 | Can be set to true to manually show the prompt         | undefined                                                                                                 |
 
